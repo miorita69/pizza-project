@@ -4,6 +4,10 @@
     Blog Pizza Mircea
 @endsection
 
+@section ('linkBlog')
+    active
+@endsection
+
 @section('content')
     <section class="blog">
         <div class="container">
@@ -22,7 +26,7 @@
             <div class="blog_list">
 
                 <div class="blog_item">
-                    <a href="marketing_ideas_for_pizza_owners.html" class="blog_item-title">Marketing Ideas
+                    <a href="blog/articles" class="blog_item-title">Marketing Ideas
                         for Pizza Owners</a>
                     <p class="blog_item-category">Category: <span>Pizza Restaurant</span></p>
                     <p class="blog_item-data">Data: <span>15/09/2020</span></p>

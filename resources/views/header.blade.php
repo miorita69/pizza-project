@@ -9,10 +9,10 @@
                     <img src="/image/logo_mobile.png" alt="Pizza Mircea Logo">
                 </picture>
             </a>
-            <a href="/" class="active">Home</a>
-            <a href="/about" class="pasive">About Us</a>
-            <a href="/blog" class="pasive">Blog</a>
-            <a href="/contact" class="pasive">Contact Us</a>
+            <a href="/" class=@yield('linkHome', 'pasive')>Home</a>
+            <a href="/about" class=@yield('linkAbout', 'pasive')>About Us</a>
+            <a href="/blog" class=@yield('linkBlog', 'pasive')>Blog</a>
+            <a href="/contact" class=@yield('linkContact', 'pasive')>Contact Us</a>
             <a href="javascript:void(0);" class="icon" onclick="navFunction()">
                 <div class="burger" onclick="burgerFunction(this)">
                     <div class="bar1"></div>

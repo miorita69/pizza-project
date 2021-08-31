@@ -4,6 +4,10 @@
     Home Pizza Mircea
 @endsection
 
+@section ('linkHome')
+    active
+@endsection
+
 @section('breadcrumbs')
     <div class="container">
         <ul class="breadcrumb">

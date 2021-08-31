@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactUsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,9 +26,19 @@ Route::get('/blog', function () {
     return view('pages/blog');
 });
 
-Route::get('/contact', function () {
-    return view('pages/contact');
+Route::get('/blog/articles', function () {
+    return view('pages/blog-article');
 });
+
+// Route::get('/contact', function () {
+//     return view('pages/contact');
+// });
+
+Route::match(['get'], '/contact',[ContactUsController::class, 'contactUs'])->name('contactUs.show');
+
+
+Route::post('/store-contact-info',[ContactUsController::class, 'storeContactInfo'])->name('contactUs.store');
+
 
 Route::get('/articles/marketing_ideas_for_pizza_owners', function () {
     return view('pages/articles/marketing_ideas_for_pizza_owners');

@@ -4,6 +4,10 @@
     About Pizza Mircea
 @endsection
 
+@section ('linkAbout')
+    active
+@endsection
+
 @section('content')
     <section class="about">
         <div class="container">
