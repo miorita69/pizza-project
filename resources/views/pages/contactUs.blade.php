@@ -51,20 +51,20 @@
                     <form action="/store-contact-info" method="POST" name="contact-form">
 
                         <label class="contact-form__label" for="email">Email:</label>
-                        <input class="contact-form__input" value="{{ old(email) }}" type="email" id="email" required="required" placeholder="Email">
+                        <input class="contact-form__input" value="{{ old('email') }}" name="email" type="email" id="email" required="required" placeholder="Email">
                         @error('email')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
 
 
                         <label class="contact-form__label" for="name">Name:</label>
-                        <input class="contact-form__input"  value="{{ old(name) }}" type="text" id="name" required="required" placeholder="Nume">
+                        <input class="contact-form__input"  value="{{ old('name') }}" name="name" type="text" id="name" required="required" placeholder="Nume">
                         @error('name')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
 
-                        <label class="contact-form__label" for="departament">Departament:</label>
-                        <select class="contact-form__input" type="text" id="departament" placeholder="Nume">
+                        <label class="contact-form__label" for="department">Departament:</label>
+                        <select class="contact-form__input" type="text" name="department" id="department" placeholder="Nume">
                             <option value="">Selecteaza un departament</option>
                             <option value="administrative">Administrativ</option>
                             <option value="acounting">Contabilitate</option>
@@ -75,7 +75,7 @@
                         <label class="contact-form__label" for="message">Message:</label>
                         <textarea  class="contact-form__input" id="message" name="message" rows="10" cols="30"></textarea>
 
-                        <input class="contact-form__input-terms" type="checkbox" id="readTerms" value="1">
+                        <input class="contact-form__input-terms" name="readTerms" type="checkbox" id="readTerms" value="1">
                         <label class="contact-form__label-terms" for="readTerms">Am citit mesajul</label>
 
                         <input type="hidden" name="_token" value="{{ csrf_token() }}" />

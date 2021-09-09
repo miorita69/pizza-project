@@ -27,9 +27,9 @@ class ContactUsRequest extends FormRequest
     {
 
             return [
-                'name' => ['request', 'string', 'min:3', 'max:256'],
-                'email' => ['request', 'email'],
-                'departament' => [
+                'name' => ['required', 'string', 'min:3', 'max:256'],
+                'email' => ['required', 'email'],
+                'department' => [
                     'nullable', 
                     'string', 
                     Rule::in(['administratitive','accounting', 'depTechnical', 'depLogistic',]),
@@ -40,7 +40,7 @@ class ContactUsRequest extends FormRequest
                      'min:10', 
                      'max:1000'
                  ],
-                'readTerms' => ['request', 'boolean']
+                'readTerms' => ['required', 'boolean']
              ];            
 
 
