@@ -15,7 +15,24 @@ class CreateCommentsTable extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('content');
+            $table->unsignedBigInteger('author_id');
+            $table->unsignedBigInteger('article_id');
+            $table->timestamp('created_at');
+
+            $table->foreign('author_id')
+                ->references('id')
+                ->on('authors')
+                ->onDelete('CASCADE')
+                ->onUpdate('CASCADE');
+            
+            $table->foreign('article_id')
+                ->references('id')
+                ->on('articles')
+                ->onDelete('CASCADE')
+                ->onUpdate('CASCADE');
+
+
         });
     }
 

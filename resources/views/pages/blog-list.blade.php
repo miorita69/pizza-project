@@ -25,17 +25,23 @@
         <div class="container">
             <div class="blog_list">
 
-                <div class="blog_item">
-                    <a href="blog/articles" class="blog_item-title">Marketing Ideas
-                        for Pizza Owners</a>
-                    <p class="blog_item-category">Category: <span>Pizza Restaurant</span></p>
-                    <p class="blog_item-data">Data: <span>15/09/2020</span></p>
-                    <p class="blog_item-description">Proper marketing can bring in more customers, but it also can
-                        be costly. To start an effective marketing campaign, you'll need to balance the cost with
-                        the return on investment. Think about your customer base and what types of marketing might
-                        appeal to them. The more buzz you can create about your pizza, the more pies you'll sell.
-                    </p>
-                </div>
+
+            @foreach($articles as $article)
+
+            <div class="blog_item">
+                <a href="{{ route('article.show', ['articleId'=>$article['id']]) }}" class="blog_item-title">
+                    {{ $article['name'] }}
+                </a>
+                <p class="blog_item-category">Category: <span>{{$article['category']}}</span></p>
+                <p class="blog_item-data">Data: <span>{{$article['created_at']}}</span></p>
+                <p class="blog_item-description">{{$article['short_description']}}</p>
+            </div>
+
+            @endforeach
+
+
+
+<!--
 
                 <div class="blog_item">
                     <a href="how_to_market_a_fast-food_restaurant.html" class="blog_item-title">How to Market a
@@ -98,7 +104,7 @@
                         becoming involved in the community and making patrons feel connected to the restaurant plays
                         into the grassroots campaign.</p>
                 </div>
-
+-->
             </div>
         </div>
     </section>
