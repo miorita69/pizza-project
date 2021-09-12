@@ -353,6 +353,12 @@ body {
   text-decoration: none;
 }
 
+.article_item img {
+  width: 25%;
+  height: auto;
+  margin: 0 1% 0 0;
+}
+
 .blog_item-category,
 .blog_item-data,
 .article_data,
@@ -373,7 +379,6 @@ body {
 }
 
 .blog_item-description,
-.article_paragraf,
 .article_text {
   margin: 0 15px 20px 15px;
   text-indent: 5%;
@@ -381,11 +386,6 @@ body {
   font-size: 2.4vw;
   text-align: justify;
   line-height: 1.5;
-}
-
-.article_paragraf {
-  margin: 0 0 0 15px;
-  font-weight: 600;
 }
 
 .article {
@@ -466,8 +466,7 @@ footer {
   }
 
   .blog_item-description,
-  .article_text,
-  .article_paragraf {
+  .article_text {
     font-size: 14px;
   }
 

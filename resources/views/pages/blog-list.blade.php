@@ -29,12 +29,12 @@
             @foreach($articles as $article)
 
             <div class="blog_item">
-                <a href="{{ route('article.show', ['articleId'=>$article['id']]) }}" class="blog_item-title">
-                    {{ $article['name'] }}
+                <a href="{{ route('article.show', ['articleId'=>$article->id]) }}" class="blog_item-title">
+                    {{ $article->title }}
                 </a>
-                <p class="blog_item-category">Category: <span>{{$article['category']}}</span></p>
-                <p class="blog_item-data">Data: <span>{{$article['created_at']}}</span></p>
-                <p class="blog_item-description">{{$article['short_description']}}</p>
+                <p class="blog_item-category">Category: <span>{{$article->category->name}}</span></p>
+                <p class="blog_item-data">Data: <span>{{$article->created_at}}</span></p>
+                <p class="blog_item-description">{{$article->description}}</p>
             </div>
 
             @endforeach

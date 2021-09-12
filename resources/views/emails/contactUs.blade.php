@@ -5,8 +5,7 @@
 <body>
     <p> Name: {{ $name }}</p>
     <p> Email: {{ $email }}</p>
-    <p> Department: {{ $department }}</p>
-    <p> Districts: {{ implode(', ', $districts) }}</p>
+    <p> Department: {{ $department ?? ''}}</p>
     {{ $messageText }}
 </body>
 </html>
