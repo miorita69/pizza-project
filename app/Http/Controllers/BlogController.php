@@ -9,7 +9,8 @@ class BlogController extends Controller
 {
     public function index()
     {
-        return view ('pages/blog-list',['articles'=>Article::all()]);      
+        $articles = Article::orderBy('created_at','DESC')->cursorPaginate(6);
+        return view ('pages/blog-list',['articles'=>$articles]);      
     }
 
     public function show(int $articleId)

@@ -50,6 +50,10 @@
 
             @endforeach
 
+            <span class="blog_pagination">{{ $articles->links() }}</span>
+
+
+
             </div>
         </div>
     </section>

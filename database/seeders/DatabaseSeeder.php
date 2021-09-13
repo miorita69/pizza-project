@@ -27,11 +27,11 @@ class DatabaseSeeder extends Seeder
 
         $this->filesystem->cleanDirectory('storage/app/public');
 
-        $categories = Category::factory()->count(2)->create();
+        $categories = Category::factory()->count(3)->create();
         foreach ($categories as $category) {
-            $authors = Author::factory()->count(2)->create();
+            $authors = Author::factory()->count(4)->create();
             foreach ($authors as $author) {
-                Article::factory(2)->create(['category_id'=>$category->id, 'author_id'=>$author->id]);
+                Article::factory(10)->create(['category_id'=>$category->id, 'author_id'=>$author->id]);
             }
         }
     }
