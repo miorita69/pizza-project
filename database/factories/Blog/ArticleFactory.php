@@ -27,10 +27,10 @@ class ArticleFactory extends Factory
     {
         return [
             'title'=>$this->faker->sentence,
-            'body'=>$this->faker->paragraph(10),
+            'body'=>$this->faker->paragraph(15, false),
             'description'=>$this->faker->paragraph(),
             'published_at'=>$this->faker->dateTimeBetween('-30 years','+30 years'),
-            'image'=>$this->faker->image('storage/app/public'),
+            'image'=>$this->faker->image('storage/app/public', 640, 480, null, false),
             'author_id'=>Author::factory(),
             'category_id'=>Category::factory(),
             'created_at' => now(),

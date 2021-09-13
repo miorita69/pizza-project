@@ -6,9 +6,17 @@ use App\Models\Blog\Author;
 use App\Models\Blog\Article;
 use App\Models\Blog\Category;
 use Illuminate\Database\Seeder;
+use Illuminate\Filesystem\Filesystem;
 
 class DatabaseSeeder extends Seeder
 {
+    private $filesystem;
+    public function __construct(Filesystem $filesystem)
+    {
+        $this->filesystem = $filesystem;
+    }
+
+
     /**
      * Seed the application's database.
      *
@@ -16,12 +24,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $categories = Category::factory()->count(10)->create();
+
+        $this->filesystem->cleanDirectory('storage/app/public');
+
+        $categories = Category::factory()->count(2)->create();
         foreach ($categories as $category) {
-             $authors = Author::factory()->count(2)->create();
-             foreach ($authors as $author) {
-                     Article::factory(10)->create(['category_id'=>$category->id, 'author_id'=>$author->id]);
-             }
-         }
+            $authors = Author::factory()->count(2)->create();
+            foreach ($authors as $author) {
+                Article::factory(2)->create(['category_id'=>$category->id, 'author_id'=>$author->id]);
+            }
+        }
     }
 }
