@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactUsRequest;
+use App\Services\Mail\ContactUsMailer;
 use Illuminate\Http\Request;
-use Illuminate\Mail\Message;
-use Mail;
+
 
 class ContactUsController extends Controller
 {
@@ -16,7 +16,7 @@ class ContactUsController extends Controller
         
     }
 
-    public function storeContactInfo(ContactUsRequest $request)
+    public function storeContactInfo(ContactUsRequest $request, ContactUsMailer $mailer)
     {
     // dd($request->all());
     // $contactUsRequest = $request->validated();
@@ -35,20 +35,11 @@ class ContactUsController extends Controller
 
 
     $data = $request->validated();
-    $data['messageText']=$data['message'];
+    // $data['messageText']=$data['message'];
 
     //dd($request->validated());
 
-    Mail::send(
-        'emails/contactUs',
-        $data,
-
-        function (Message $message) use ($data) {
-            $message->to('test@test.com');
-            $message->subject('Contact Us request form ', $data['name'].' '.$data['email']);
-            $message->replyto($data['email']);
-            }
-    );
+    $mailer->send($data);
 
 
     return redirect(route('contactUs.show'))

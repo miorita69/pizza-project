@@ -50,11 +50,8 @@
 
             @endforeach
 
-            <span class="blog_pagination">{{ $articles->links() }}</span>
-
-
-
             </div>
+            {{ $articles->links('vendor.pagination.tailwind') }}
         </div>
     </section>
 @endsection

@@ -32,7 +32,7 @@ class ContactUsRequest extends FormRequest
                 'department' => [
                     'nullable', 
                     'string', 
-                    Rule::in(['administratitive','accounting', 'depTechnical', 'depLogistic',]),
+                    Rule::in(['administrative','acounting', 'depTechnical', 'depLogistic',]),
                  ],
                  'message' => [
                      Rule::requiredIf((bool)$this->input('departament')), 

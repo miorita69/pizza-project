@@ -439,8 +439,14 @@ body {
   line-height: 1.5;
 }
 
-.blog_pagination {
-  margin: 10px 0 20px 0;
+.blog_pagination-nav {
+  margin: 0 auto;
+  padding: 0;
+  display: block;
+}
+
+.blog_pagination-wrapper {
+  display: flex;
 }
 
 .article {
