@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
 class ContactUsRequest extends FormRequest
@@ -26,12 +27,12 @@ class ContactUsRequest extends FormRequest
     {
 
             return [
-                'name' => ['request', 'string', 'min:3', 'max:256'],
-                'email' => ['request', 'email'],
-                'departament' => [
+                'name' => ['required', 'string', 'min:3', 'max:256'],
+                'email' => ['required', 'email'],
+                'department' => [
                     'nullable', 
                     'string', 
-                    Rule::in(['administratitive','accounting', 'depTechnical', 'depLogistic',]),
+                    Rule::in(['administrative','acounting', 'depTechnical', 'depLogistic',]),
                  ],
                  'message' => [
                      Rule::requiredIf((bool)$this->input('departament')), 
@@ -39,7 +40,7 @@ class ContactUsRequest extends FormRequest
                      'min:10', 
                      'max:1000'
                  ],
-                'readTerms' => ['request', 'boolean']
+                'readTerms' => ['required', 'boolean']
              ];            
 
 

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactUsController;
+use App\Http\Controllers\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,9 +23,12 @@ Route::get('/about', function () {
     return view('pages/about');
 });
 
-Route::get('/blog', function () {
-    return view('pages/blog');
-});
+Route::get('/blog', [BlogController::class, 'index']);
+Route::get('/blog/article/{articleId}', [BlogController::class, 'show'])->name('article.show');
+
+//Route::get('/blog', function () {
+//    return view('pages/blog-list');
+//});
 
 Route::get('/blog/articles', function () {
     return view('pages/blog-article');
@@ -38,8 +42,3 @@ Route::match(['get'], '/contact',[ContactUsController::class, 'contactUs'])->nam
 
 
 Route::post('/store-contact-info',[ContactUsController::class, 'storeContactInfo'])->name('contactUs.store');
-
-
-Route::get('/articles/marketing_ideas_for_pizza_owners', function () {
-    return view('pages/articles/marketing_ideas_for_pizza_owners');
-});

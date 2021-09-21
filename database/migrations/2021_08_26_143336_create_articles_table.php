@@ -15,7 +15,30 @@ class CreateArticlesTable extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('title',255);
+            $table->text('body');
+            $table->text('description');
+            $table->dateTime('published_at')->nullable();
+            $table->string('image',255)->nullable();
+            $table->unsignedBigInteger('author_id');
+            $table->unsignedBigInteger('category_id');
+            $table->timestamp('created_at');
+
+            $table->foreign('author_id')
+                ->references('id')
+                ->on('authors')
+                ->onDelete('CASCADE')
+                ->onUpdate('CASCADE');
+            
+            $table->foreign('category_id')
+                ->references('id')
+                ->on('categories')
+                ->onDelete('CASCADE')
+                ->onUpdate('CASCADE');
+
+
+
+
         });
     }
 
