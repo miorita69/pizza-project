@@ -3,6 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Services\Logging\DummyRequestLogger;
+use App\Services\Logging\RequestLoggerInterface;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +16,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(RequestLoggerInterface::class, DummyRequestLogger::class);
+        return $this->app->make(DummyRequestLogger::class);
     }
 
     /**
